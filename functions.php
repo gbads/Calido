@@ -1,37 +1,28 @@
 <?php 
-function storefront_child_init() {
 
-/** 
- * Enqueue styles and scripts:
-*/
-function storefront_child_enqueues() {
-  // Refers to styles in the parent theme folder
-  wp_enqueue_style(
-    'storefront-parent-styles',
-    get_template_directory_uri() .'/style.css'
-  );
-}
-add_action( 'wp_enqueue_scripts', 'storefront_child_enqueues' ); 
-
-function storefron_child_setup(){
+function storefront_child_setup() {
   /*
   * - Support alignwide images.
   * - Custom image crop. 
   * - Enable support for Post Thumbnails on posts and pages.
   */
-  add_theme_support( array( 'alignwide', , 'post-thumbnails', 'custom-logo',
+  add_theme_support( 'alignwide' );
+  add_theme_support( 'post-thumbnails' );
+  add_theme_support( 'custom-logo',
   array(
     'height'      => 300,
     'width'       => 200,
     'flex-width'  => true,
     'flex-height' => true,
-  )) );
+  ));
   
   // Custom Image Crops
   add_image_size( 'thumbnail-icon', 100, 100, true );
 
 }
-add_action('after_setup_theme', 'storefront_child_setup')
+add_action('after_setup_theme', 'storefront_child_setup');
+
+
 //   remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
 //   remove_action( 'woocommerce_simple_add_to_cart', 'woocommerce_simple_add_to_cart', 30 );
 //   remove_action( 'woocommerce_grouped_add_to_cart', 'woocommerce_grouped_add_to_cart', 30 );
@@ -70,30 +61,15 @@ add_action('after_setup_theme', 'storefront_child_setup')
 //   );
 
 
-
-  
-
-  // Disable WooCommerce search bar 
-  function wc_disable_search() {
-    if ( function_exists( 'WC' ) && ! is_admin() && is_search() && 
-    isset( $_GET['post_type'] ) &&  $_GET['post_type'] == 'product' ) {
-      wp_redirect( home_url() );
-      exit;
-    }
+// Disable WooCommerce search bar 
+function wc_disable_search() {
+  if ( function_exists( 'WC' ) && ! is_admin() && is_search() && 
+  isset( $_GET['post_type'] ) &&  $_GET['post_type'] == 'product' ) {
+    wp_redirect( home_url() );
+    exit;
   }
-  add_action( 'template_redirect', 'wc_disable_search' );
-  
-	/*
-  * Enable support for Post Thumbnails on posts and pages.
-  *
-  * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-  */
-  add_theme_support( 'post-thumbnails' );
-
 }
-add_action( 'init', 'storefront_child_init' );
-
-
+add_action( 'template_redirect', 'wc_disable_search' );
 
 // Disables Gutenberg on speficic pages:
 add_action('admin_init', function () {
