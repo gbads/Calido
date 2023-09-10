@@ -5,19 +5,33 @@ function storefront_child_init() {
  * Enqueue styles and scripts:
 */
 function storefront_child_enqueues() {
-    // Refers to styles in the parent theme folder
-    wp_enqueue_style(
-      'storefront-parent-styles',
-      get_template_directory_uri() .'/style.css'
-    );
-    // Refers to child scripts in the child theme
-    wp_enqueue_script(
-      'child-scripts',
-      get_stylesheet_directory_uri() .'/js/child-scripts.js'
-    );
-  }
-  add_action( 'wp_enqueue_scripts', 'storefront_child_enqueues' ); 
+  // Refers to styles in the parent theme folder
+  wp_enqueue_style(
+    'storefront-parent-styles',
+    get_template_directory_uri() .'/style.css'
+  );
+}
+add_action( 'wp_enqueue_scripts', 'storefront_child_enqueues' ); 
 
+function storefron_child_setup(){
+  /*
+  * - Support alignwide images.
+  * - Custom image crop. 
+  * - Enable support for Post Thumbnails on posts and pages.
+  */
+  add_theme_support( array( 'alignwide', , 'post-thumbnails', 'custom-logo',
+  array(
+    'height'      => 300,
+    'width'       => 200,
+    'flex-width'  => true,
+    'flex-height' => true,
+  )) );
+  
+  // Custom Image Crops
+  add_image_size( 'thumbnail-icon', 100, 100, true );
+
+}
+add_action('after_setup_theme', 'storefront_child_setup')
 //   remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
 //   remove_action( 'woocommerce_simple_add_to_cart', 'woocommerce_simple_add_to_cart', 30 );
 //   remove_action( 'woocommerce_grouped_add_to_cart', 'woocommerce_grouped_add_to_cart', 30 );
@@ -89,7 +103,7 @@ add_action('admin_init', function () {
       return;
     }
     $title = get_the_title($post_id);
-    if ($title == 'Home' || $title == 'About') {
+    if ($title == 'Homepage' || $title == 'About') {
       remove_post_type_support('page', 'editor');
     }
   }
