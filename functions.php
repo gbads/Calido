@@ -25,7 +25,7 @@ add_action('after_setup_theme', 'storefront_child_setup');
 function calido_enqueues() {
   wp_enqueue_script( 'jquery-masonry' );
   if(is_page('33')){
-    wp_enqueue_script( 'calido-scripts', get_theme_file_uri('js/calido-scripts.js') );
+    wp_enqueue_script( 'calido-scripts', get_theme_file_uri('js/calido-scripts.js'), '', '', true );
   }
 }
 add_action('wp_enqueue_scripts', 'calido_enqueues');

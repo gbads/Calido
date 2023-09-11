@@ -19,7 +19,7 @@ Template: storefront
 }
 
 /* Hide the images by default */
-.img-slide:not(:first-child) {
+.img-slide {
   display: none;
 }
 
