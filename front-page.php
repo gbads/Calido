@@ -17,9 +17,7 @@ get_header();
 
 	<main id="primary" class="site-main">
 
-    <?php
-    if ( function_exists( 'get_field' ) ) :
-    ?>
+    <?php if ( function_exists( 'get_field' ) ) : ?>
 		<section class="home-banner">
 			<?php
                 if ( get_field( 'banner_image_1' ) && !get_field('banner_image_2') && !get_field('banner_image_3') ){
@@ -65,9 +63,25 @@ get_header();
 				}
 			?>
 		</section>
-    <?php 
-    endif;
-    ?>
+    <?php endif; ?>
+
+    <?php if ( function_exists( 'get_field' ) ) : ?>
+    <section class="featured-products">
+    
+        <?php
+        if (get_field('featured_products')) :
+            $featured = get_field('featured_products');
+            foreach($featured as $product) :
+            
+                setup_postdata($product); 
+                wc_get_template_part( 'content', 'product' );
+            endforeach;
+        endif;
+            
+        wp_reset_postdata();
+        ?>
+    </section>
+    <?php endif; ?>
 
 		
 
