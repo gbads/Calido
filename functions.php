@@ -22,6 +22,13 @@ function storefront_child_setup() {
 }
 add_action('after_setup_theme', 'storefront_child_setup');
 
+function calido_enqueues() {
+  wp_enqueue_script( 'jquery-masonry' );
+  if(is_page('33')){
+    wp_enqueue_script( 'calido-scripts', get_theme_file_uri('js/calido-scripts.js') );
+  }
+}
+add_action('wp_enqueue_scripts', 'calido_enqueues');
 
 //   remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
 //   remove_action( 'woocommerce_simple_add_to_cart', 'woocommerce_simple_add_to_cart', 30 );
