@@ -61,6 +61,7 @@ function calido_woo_overwrites(){
   remove_action( 'woocommerce_grouped_add_to_cart', 'woocommerce_grouped_add_to_cart', 30 );
   remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5 );
   remove_action( 'woocommerce_after_single_product_summary', 'storefront_single_product_pagination', 30 );
+  remove_action( 'storefront_header', 'storefront_header_cart', 60 );
 }
 add_action('init', 'calido_woo_overwrites');
 
