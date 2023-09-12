@@ -66,16 +66,31 @@ get_header();
     <?php endif; ?>
 
     <?php if ( function_exists( 'get_field' ) ) : ?>
-    <section class="featured-products">
-    
+    <section class="col-full">
+    <h2>Featured Work</h2>
         <?php
         if (get_field('featured_products')) :
+            ?><div class="featured-products"><?php
             $featured = get_field('featured_products');
+            $i = 0;
             foreach($featured as $product) :
-            
-                setup_postdata($product); 
-                wc_get_template_part( 'content', 'product' );
+                $i++;
+                $post = get_post($product->ID);
+                $content = $post->post_content; 
+                $image =  wp_get_attachment_image_src( get_post_thumbnail_id( $post ), 'single-post-thumbnail' )
+
+                ?>
+                <a href="mailto:email@email.com" class="single-featured-product" id=<?php echo 'single-featured-'.$i;?>>
+                    
+                        <img src="<?php echo $image[0]; ?>" alt="<?php echo get_the_title($post); ?>">
+                        <h3 class="single-featured-header"><?php echo get_the_title($post); ?></h3>
+                        <?php echo '<p class="homepage-inquire-cta">Inquire Now</p>' ?>
+                    
+                </a>
+
+                <?php
             endforeach;
+            ?></div><?php
         endif;
             
         wp_reset_postdata();
