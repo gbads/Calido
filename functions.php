@@ -56,42 +56,23 @@ add_action('admin_init', function () {
 
 /* WooCommerce Action Overwrites */
 function calido_woo_overwrites(){
-  remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
-  remove_action( 'woocommerce_simple_add_to_cart', 'woocommerce_simple_add_to_cart', 30 );
-  remove_action( 'woocommerce_grouped_add_to_cart', 'woocommerce_grouped_add_to_cart', 30 );
   remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5 );
   remove_action( 'woocommerce_after_single_product_summary', 'storefront_single_product_pagination', 30 );
   remove_action( 'storefront_header', 'storefront_header_cart', 60 );
+  add_filter( 'woocommerce_is_purchasable', '__return_false');
 }
 add_action('init', 'calido_woo_overwrites');
 
-/**
- * Replaces the Add To Cart button with a new button with custom text and a custom URL link
- * This will affect all products site-wide
- * You can change the style of the button by using CSS on p.zpd-wc-reserve-item-button{}
- *
- * @author Wil Brown zeropointdevelopment.com
- */
-function calido_replace_add_to_cart_button() {
-	global $product;
-
-	// This adds some URL query variables that may be useful to input into a contact form - remove if not needed
-	$product_link_params = sprintf( '?wc_id=%s&wc_price=%s&wc_title=%s&wc_product_link=%s',
-		$product->get_id(),
-		$product->get_display_price(),
-		$product->get_title(),
-		$product->get_permalink()
-	);
-	$button_text = 'Inquire Now';
-	$link = 'mailto:email@email.com';
-
-
-	echo '<p class="calido-product-button">';
-	echo do_shortcode('<a  href="'.$link.'" class="button addtocartbutton">' . $button_text . '</a>');
-	echo '</p>';
+/* Replace Add to Cart text on product CTA */
+add_filter( 'woocommerce_product_single_add_to_cart_text', 'woocommerce_add_to_cart_button_text_single' ); 
+function woocommerce_add_to_cart_button_text_single() {
+    return __( 'See Details', 'woocommerce' ); 
 }
-add_action( 'woocommerce_after_shop_loop_item','calido_replace_add_to_cart_button' );
 
+add_filter( 'woocommerce_product_add_to_cart_text', 'woocommerce_add_to_cart_button_text_archives' );  
+function woocommerce_add_to_cart_button_text_archives() {
+    return __( 'See Details', 'woocommerce' );
+}
 
 
 //   add_action( 'wp', 'bbloomer_remove_default_sorting_storefront' );

@@ -76,15 +76,15 @@ get_header();
             foreach($featured as $product) :
                 $i++;
                 $post = get_post($product->ID);
+                $link = get_permalink($post);
                 $content = $post->post_content; 
                 $image =  wp_get_attachment_image_src( get_post_thumbnail_id( $post ), 'single-post-thumbnail' )
 
                 ?>
-                <a href="mailto:email@email.com" class="single-featured-product" id=<?php echo 'single-featured-'.$i;?>>
+                <a href=<?php echo $link;?> class="single-featured-product" id=<?php echo 'single-featured-'.$i;?>>
                     
                         <img src="<?php echo $image[0]; ?>" alt="<?php echo get_the_title($post); ?>">
                         <h3 class="single-featured-header"><?php echo get_the_title($post); ?></h3>
-                        <?php echo '<p class="homepage-inquire-cta">Inquire Now</p>' ?>
                     
                 </a>
 
