@@ -13,7 +13,7 @@ Template: storefront
   width: 100%;
   position: relative;
   margin: 0 auto;
-  height: 300px;
+  height: 30rem;
   overflow: hidden;
 }
 
@@ -23,7 +23,7 @@ Template: storefront
 }
 
 .slideshow-container .img-slide img {
-    height: 300px;
+    height: 30rem;
     object-fit: cover;
     object-position: center center;
 }
@@ -77,10 +77,10 @@ Template: storefront
   to {opacity: 1}
 }
 
-@media (min-width: 48em) {
+@media (min-width: 64rem) {
   .slideshow-container {
     max-width: 66.4989378333em;
-    height: 300px;
+    height: 30rem;
   }
   
   .slideshow-container .img-slide img {
@@ -91,18 +91,30 @@ Template: storefront
 
 /* Homepage - Featured Products Styles */
 
-.featured-product {
+.featured-products {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 2rem;
 }
 
 .featured-products .single-featured-product {
     display: inline-block;
     width: fit-content;
-    
-}
-
+    overflow: hidden;
+  }
+  
 .single-featured-product img {
     display: inline-block;
+    width: 100%;
+    max-width: 18.75rem;
+    height: 18.75rem;
+    object-fit: cover;
+    object-position: center center;
+    margin: auto;
+}
+
+@media (min-width: 30rem) {
+  
 }
 
