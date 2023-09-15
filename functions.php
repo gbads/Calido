@@ -23,11 +23,9 @@ function storefront_child_setup() {
 add_action('after_setup_theme', 'storefront_child_setup');
 
 function calido_enqueues() {
-  wp_enqueue_script( 'jquery-masonry' );
-  wp_enqueue_script ( 'calido-masonry' , get_stylesheet_directory_uri() . '/js/calido-masonry.js', array('jquery-masonry'), '1', true );
  
   if(is_page('33')){
-    wp_enqueue_script( 'calido-scripts', get_theme_file_uri('js/calido-scripts.js'), '', '', true );
+    wp_enqueue_script( 'calido-home', get_theme_file_uri('js/calido-home.js'), '', '', true );
   }
 }
 add_action('wp_enqueue_scripts', 'calido_enqueues');

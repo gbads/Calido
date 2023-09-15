@@ -77,6 +77,11 @@ Template: storefront
 
 /* Homepage - Featured Products Styles */
 
+.featured-product {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .featured-products .single-featured-product {
     display: inline-block;
     width: fit-content;
@@ -87,14 +92,3 @@ Template: storefront
     display: inline-block;
 }
 
-.featured-products .single-featured-product {
-	
-	margin: 0 1.5% 1rem !important;
-	padding: 3%; 
-}
-/* 3 Up on devices ipad portrait plus */
-@media only screen and (min-width: 768px) {
-	.featured-products .single-featured-product {
-	width: 30%;  
-	}
-}
