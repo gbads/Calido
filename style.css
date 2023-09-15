@@ -10,7 +10,7 @@ Template: storefront
 /* Homepage - Slider */
 
 .slideshow-container {
-  max-width: 66.4989378333em;
+  width: 100%;
   position: relative;
   margin: 0 auto;
   height: 300px;
@@ -19,11 +19,13 @@ Template: storefront
 
 .img-slide {
   display: none;
+  overflow: hidden;
 }
 
 .slideshow-container .img-slide img {
-    width: 100%;
-    height: auto;
+    height: 300px;
+    object-fit: cover;
+    object-position: center center;
 }
 
 .prev, .next {
@@ -73,6 +75,18 @@ Template: storefront
 @keyframes fade {
   from {opacity: .4}
   to {opacity: 1}
+}
+
+@media (min-width: 48em) {
+  .slideshow-container {
+    max-width: 66.4989378333em;
+    height: 300px;
+  }
+  
+  .slideshow-container .img-slide img {
+    width: 100%;
+    height: auto;
+}
 }
 
 /* Homepage - Featured Products Styles */
