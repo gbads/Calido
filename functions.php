@@ -79,14 +79,24 @@ function woocommerce_add_to_cart_button_text_archives() {
 function calido_allowed_post_type_blocks( $allowed_block_types, $editor_context ) {
 	if ( 'page' === $editor_context->post->post_type){ 
     if('2' == $_GET['post'] ) {
-		return array(
-			'core/paragraph',
-      'core/heading',
-      'core/media-text',
-      'core/image',
-      'core/button',
-		);
-	}
+      return array(
+        'core/paragraph',
+        'core/heading',
+        'core/media-text',
+        'core/image',
+        'core/button',
+      );
+    }
+    if('150' == $_GET['post'] ) {
+      return array(
+        'core/paragraph',
+        'core/heading',
+        'core/shortcode',
+        'core/image',
+        'core/media-text',
+      );
+    }
+
 }
 
 	return $allowed_block_types;
