@@ -48,7 +48,7 @@ add_action('admin_init', function () {
       return;
     }
     $title = get_the_title($post_id);
-    if ($title == 'Homepage' || $title == 'About') {
+    if ($title == 'Homepage') {
       remove_post_type_support('page', 'editor');
     }
   }
@@ -70,10 +70,27 @@ function woocommerce_add_to_cart_button_text_single() {
 }
 
 add_filter( 'woocommerce_product_add_to_cart_text', 'woocommerce_add_to_cart_button_text_archives' );  
+
 function woocommerce_add_to_cart_button_text_archives() {
     return __( 'See Details', 'woocommerce' );
 }
 
+// Customise available blocks on specific pages
+function calido_allowed_post_type_blocks( $allowed_block_types, $editor_context ) {
+	if ( 'page' === $editor_context->post->post_type && '2' == $_GET['post'] ) {
+		return array(
+			'core/paragraph',
+      'core/heading',
+      'core/media-text',
+      'core/image',
+      'core/button',
+		);
+	}
+
+	return $allowed_block_types;
+}
+
+add_filter( 'allowed_block_types_all', 'calido_allowed_post_type_blocks', 10, 2 );
 
 //   add_action( 'wp', 'bbloomer_remove_default_sorting_storefront' );
   
