@@ -118,3 +118,7 @@ Template: storefront
   
 }
 
+/* Layout Overwrites */
+body #primary {
+  width: 100%;
+}
