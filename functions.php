@@ -84,7 +84,7 @@ function calido_allowed_post_type_blocks( $allowed_block_types, $editor_context 
         'core/heading',
         'core/media-text',
         'core/image',
-        'core/button',
+        'core/buttons',
       );
     }
     if('150' == $_GET['post'] ) {
@@ -94,7 +94,7 @@ function calido_allowed_post_type_blocks( $allowed_block_types, $editor_context 
         'core/shortcode',
         'core/image',
         'core/media-text',
-        'core/button',
+        'core/buttons',
       );
     }
 
