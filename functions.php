@@ -94,6 +94,7 @@ function calido_allowed_post_type_blocks( $allowed_block_types, $editor_context 
         'core/shortcode',
         'core/image',
         'core/media-text',
+        'core/button',
       );
     }
 
