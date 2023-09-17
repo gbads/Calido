@@ -77,7 +77,8 @@ function woocommerce_add_to_cart_button_text_archives() {
 
 // Customise available blocks on specific pages
 function calido_allowed_post_type_blocks( $allowed_block_types, $editor_context ) {
-	if ( 'page' === $editor_context->post->post_type && '2' == $_GET['post'] ) {
+	if ( 'page' === $editor_context->post->post_type){ 
+    if('2' == $_GET['post'] ) {
 		return array(
 			'core/paragraph',
       'core/heading',
@@ -86,6 +87,7 @@ function calido_allowed_post_type_blocks( $allowed_block_types, $editor_context 
       'core/button',
 		);
 	}
+}
 
 	return $allowed_block_types;
 }
