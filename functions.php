@@ -106,6 +106,16 @@ function calido_allowed_post_type_blocks( $allowed_block_types, $editor_context 
 
 add_filter( 'allowed_block_types_all', 'calido_allowed_post_type_blocks', 10, 2 );
 
+// Remove Footer Handheld Menu
+function calido_remove_handheld_footer_links( $links ) {
+	unset( $links['my-account'] );
+	unset( $links['search'] );
+	unset( $links['cart'] );
+
+	return $links;
+}
+add_filter( 'storefront_handheld_footer_bar_links', 'calido_remove_handheld_footer_links' );
+
 //   add_action( 'wp', 'bbloomer_remove_default_sorting_storefront' );
   
 //   function bbloomer_remove_default_sorting_storefront() {

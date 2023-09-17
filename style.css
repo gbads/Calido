@@ -7,6 +7,14 @@ Author URI: https://gabbiebade.com and https://katychendev.com
 Template: storefront 
 */  
 
+/* Calido Color Palette */
+:root {
+  --deeporange: #E8591A;
+  --black: #000000;
+  --blue: #082BD4;
+  --lightblue: #31CEDC;
+  --orange: #F59D1E;
+}
 /* Homepage - Slider */
 
 .slideshow-container {
@@ -114,8 +122,23 @@ Template: storefront
     margin: auto;
 }
 
-@media (min-width: 30rem) {
-  
+/* Homepage - CTA Styles */
+.home .site-content div.home-cta {
+  text-align: center;
+  margin: 2rem auto;
+}
+
+.calido-link {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--deeporange);
+  color: white;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.calido-link:hover{
+  background-color: var(--blue);
 }
 
 /* Layout Overwrites */

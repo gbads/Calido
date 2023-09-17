@@ -66,7 +66,30 @@ get_header();
     <?php endif; ?>
 
     <?php if ( function_exists( 'get_field' ) ) : ?>
-    <section class="col-full">
+    <section class="featured-collection col-full">
+        <?php
+        if (get_field('featured_collection')) :
+            ?><div class="featured-collection"><?php
+            $term = get_field('featured_collection');
+            $thumb = get_term_meta($term->term_id, 'thumbnail_id', true);
+                     
+            echo '<img src="'.wp_get_attachment_url($thumb).'" alt="'.esc_html( $term->name ).'">';
+            echo '<div>';
+            echo '<h2>'.esc_html( $term->name ).'</h2>';
+            echo '<p>'.esc_html( $term->description ).'</p>';
+            echo '</div>';
+            ?>
+             </div>
+             <?php
+        endif;
+            
+        wp_reset_postdata();
+        ?>
+    </section>
+    <?php endif; ?>
+    
+    <?php if ( function_exists( 'get_field' ) ) : ?>
+    <section class="featured-work col-full">
     <h2>Featured Work</h2>
         <?php
         if (get_field('featured_products')) :
@@ -98,7 +121,26 @@ get_header();
     </section>
     <?php endif; ?>
 
-		
+
+    <?php if ( function_exists( 'get_field' ) ) : ?>
+    <div class="col-full home-cta">
+        <?php
+        if (get_field('home_cta_link')) :
+            
+            $link = get_field('home_cta_link');
+            $label = get_field('home_cta_label');
+           
+            echo '<a href="'.$link.'" class="calido-link">'.esc_html($label).'</a>';
+        
+            ?>
+            
+             <?php
+        endif;
+            
+        wp_reset_postdata();
+        ?>
+    </div>
+    <?php endif; ?>
 
 
 	</main><!-- #main -->
