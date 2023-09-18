@@ -24,6 +24,8 @@ add_action('after_setup_theme', 'storefront_child_setup');
 
 function calido_enqueues() {
  
+  wp_enqueue_style( 'calido-font', '<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap">' ); 
+
   if(is_page('33')){
     wp_enqueue_script( 'calido-home', get_theme_file_uri('js/calido-home.js'), '', '', true );
   }

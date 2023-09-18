@@ -7,6 +7,9 @@ Author URI: https://gabbiebade.com and https://katychendev.com
 Template: storefront 
 */  
 
+/* ===========================
+Base
+=============================*/
 /* Calido Color Palette */
 :root {
   --deeporange: #E8591A;
@@ -15,19 +18,95 @@ Template: storefront
   --lightblue: #31CEDC;
   --orange: #F59D1E;
 }
+
+/* Typography */
+h1, h2, h3, h4, h5, h6, body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
+
+/* Layout Overwrites */
+body #primary {
+  width: 100%;
+}
+
+/* ===========================
+Calido General
+=============================*/
+/* Calido - Reusable styles */
+.orange-line, .blue-line {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  height: 5px;
+  border-radius: 30%;
+}
+
+.blue-line {
+  background: var(--blue);
+  background: linear-gradient(140deg, rgba(8,43,212,1) 18%, rgba(49,206,220,1) 61%);
+}
+
+.orange-line {
+  background: var(--orange);
+  background: linear-gradient(140deg, rgba(245,157,30,1) 39%, rgba(232,89,26,1) 82%);
+}
+
+.calido-link {
+  display: inline-block;
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--deeporange);
+  color: white;
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin: 1rem auto;
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.calido-link:hover{
+  background-color: var(--orange);
+  color: var(--black);
+}
+
+.calido-link.calido-secondary {
+  background-color: var(--blue);
+}
+
+.calido-link.calido-secondary:hover{
+  background-color: var(--lightblue);
+  color: var(--black);
+}
+
+
+/* ===========================
+Header
+=============================*/
+
+/* ===========================
+Homepage
+=============================*/
+
 /* Homepage - Slider */
 
 .slideshow-container {
   width: 100%;
   position: relative;
   margin: 0 auto;
+}
+
+.slideshow-container, .img-slide {
   height: 30rem;
   overflow: hidden;
 }
 
 .img-slide {
   display: none;
-  overflow: hidden;
 }
 
 .slideshow-container .img-slide img {
@@ -93,55 +172,77 @@ Template: storefront
   
   .slideshow-container .img-slide img {
     width: 100%;
-    height: auto;
+    height: 100%;
 }
 }
 
 /* Homepage - Featured Products Styles */
+.featured-work h2 {
+  color: var(--deeporange);
+}
 
 .featured-products {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  gap: 2rem;
+  justify-content: flex-start;
+  gap: 1rem;
 }
 
 .featured-products .single-featured-product {
     display: inline-block;
     width: fit-content;
     overflow: hidden;
-  }
-  
-.single-featured-product img {
-    display: inline-block;
-    width: 100%;
-    max-width: 18.75rem;
-    height: 18.75rem;
-    object-fit: cover;
-    object-position: center center;
-    margin: auto;
 }
 
-/* Homepage - CTA Styles */
+.featured-products .single-featured-product .single-featured-header {
+  font-size: 1.5rem;
+}
+  
+.single-featured-product img, .featured-collection img {
+  display: inline-block;
+  width: 18.75rem;
+  height: 18.75rem;
+  object-fit: cover;
+  object-position: 50% 60%;
+}
+
+@media (min-width: 50rem) {
+  .featured-products {
+    justify-content: space-between;
+  }
+  .featured-products .single-featured-product {
+    width: 30%;
+  }
+}
+
+/* Homepage - Featured Collection and CTA */
+.home .site-content .featured-collection {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  row-gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+
+@media (min-width: 50rem){
+  .home .site-content .featured-collection img{
+    display: inline;
+  }
+  .home .site-content .featured-collection{
+    flex-direction: row;
+  }
+  .home .site-content .featured-collection div {
+    margin-left: 2rem;
+  }
+}
+
 .home .site-content div.home-cta {
   text-align: center;
   margin: 2rem auto;
 }
 
-.calido-link {
-  text-align: center;
-  padding: 1rem;
-  background-color: var(--deeporange);
-  color: white;
-  font-size: 1.125rem;
-  font-weight: 700;
-}
-
-.calido-link:hover{
-  background-color: var(--blue);
-}
-
-/* Layout Overwrites */
-body #primary {
-  width: 100%;
+.featured-collection h2 {
+  color: var(--blue);
 }

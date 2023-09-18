@@ -66,20 +66,22 @@ get_header();
     <?php endif; ?>
 
     <?php if ( function_exists( 'get_field' ) ) : ?>
+    <div class="col-full orange-line"></div>
     <section class="featured-collection col-full">
         <?php
         if (get_field('featured_collection')) :
-            ?><div class="featured-collection"><?php
             $term = get_field('featured_collection');
             $thumb = get_term_meta($term->term_id, 'thumbnail_id', true);
+         
                      
             echo '<img src="'.wp_get_attachment_url($thumb).'" alt="'.esc_html( $term->name ).'">';
             echo '<div>';
             echo '<h2>'.esc_html( $term->name ).'</h2>';
             echo '<p>'.esc_html( $term->description ).'</p>';
+            echo '<a href="'.esc_url(get_term_link($term)).'" class="calido-link">See Collection</a>';
             echo '</div>';
             ?>
-             </div>
+            
              <?php
         endif;
             
@@ -89,6 +91,7 @@ get_header();
     <?php endif; ?>
     
     <?php if ( function_exists( 'get_field' ) ) : ?>
+    <div class="col-full blue-line"></div>
     <section class="featured-work col-full">
     <h2>Featured Work</h2>
         <?php
@@ -130,7 +133,7 @@ get_header();
             $link = get_field('home_cta_link');
             $label = get_field('home_cta_label');
            
-            echo '<a href="'.$link.'" class="calido-link">'.esc_html($label).'</a>';
+            echo '<a href="'.$link.'" class="calido-link calido-secondary">'.esc_html($label).'</a>';
         
             ?>
             
