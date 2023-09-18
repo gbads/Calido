@@ -19,6 +19,16 @@ function storefront_child_setup() {
   // Custom Image Crops
   add_image_size( 'thumbnail-icon', 100, 100, true );
 
+  // Custom Menus
+  register_nav_menus(
+		array(
+			'cta-menu' => esc_html__( 'CTA Menu', 'calido' ),
+			'footer-menu' => esc_html__( 'Footer Menu', 'calido' ),
+			'socials-menu' => esc_html__( 'Socials Menu', 'calido' ),
+		)
+	);
+
+
 }
 add_action('after_setup_theme', 'storefront_child_setup');
 
