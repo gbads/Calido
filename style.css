@@ -54,7 +54,7 @@ Calido General
   background: linear-gradient(140deg, rgba(245,157,30,1) 39%, rgba(232,89,26,1) 82%);
 }
 
-.calido-link {
+.calido-link, .wp-block-button__link.wp-element-button {
   display: inline-block;
   text-align: center;
   padding: 1rem;
@@ -69,7 +69,7 @@ Calido General
   font-size: 1rem;
 }
 
-.calido-link:hover{
+.calido-link:hover, .wp-block-button__link.wp-element-button:hover{
   background-color: var(--orange);
   color: var(--black);
 }
@@ -87,6 +87,17 @@ Calido General
 /* ===========================
 Header
 =============================*/
+#masthead {
+  display: flex;
+}
+
+.site-branding a .custom-logo {
+  height: 2rem;
+}
+
+.site-branding a {
+  width: fit-content;
+}
 .site-navigation .menu-toggle {
   
 }
