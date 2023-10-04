@@ -23,35 +23,58 @@
 <?php wp_body_open(); ?>
 
 <?php do_action( 'storefront_before_site' ); ?>
+<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'calido' ); ?></a>
+
 
 <div id="page" class="hfeed site">
 	<?php do_action( 'storefront_before_header' ); ?>
 
 	<header id="masthead" class="site-header" role="banner" style="<?php storefront_header_styles(); ?>">
-
-		<?php
-		/**
-		 * Functions hooked into storefront_header action
-		 *
-		 * @hooked storefront_header_container                 - 0
-		 * @hooked storefront_skip_links                       - 5
-		 * @hooked storefront_social_icons                     - 10
-		 * @hooked storefront_site_branding                    - 20
-		 * @hooked storefront_secondary_navigation             - 30
-		 * @hooked storefront_product_search                   - 40
-		 * @hooked storefront_header_container_close           - 41
-		 * @hooked storefront_primary_navigation_wrapper       - 42
-		 * @hooked storefront_primary_navigation               - 50
-		 * @hooked storefront_header_cart                      - 60
-		 * @hooked storefront_primary_navigation_wrapper_close - 68
-		 */
-		do_action( 'storefront_header' );
-		?>
-		<div class="cta-menu">
+		<section class="calido-menus">
+			<div class="cta-menu">		
 			<?php
-			wp_nav_menu(array('theme_location' => 'cta-menu'));
-			?>
+				wp_nav_menu(array('theme_location' => 'header-menu'));
+				?>
+			</div>
+			<div class="cta-menu">
+				<?php
+				wp_nav_menu(array('theme_location' => 'cta-menu'));
+				?>
+			</div>
+		</section>
+
+		<section class="nav-header">
+		<div class="site-branding">
+			<?php
+			the_custom_logo();
+				if ( is_front_page() && is_home() ) : ?>
+				<h1 class="site-title screen-reader-text"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+				<?php else : ?>
+				<p class="site-title screen-reader-text"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+				<?php
+				endif;
+			$calido_description = get_bloginfo( 'description', 'display' );
+				if ( $calido_description || is_customize_preview() ) : ?>
+				<p class="site-description"><?php echo $calido_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+				<?php endif; ?>
 		</div>
+		<div class="right-nav-header">
+			<nav id="site-navigation" class="main-navigation">
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+				<svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m22 16.75c0-.414-.336-.75-.75-.75h-18.5c-.414 0-.75.336-.75.75s.336.75.75.75h18.5c.414 0 .75-.336.75-.75zm0-5c0-.414-.336-.75-.75-.75h-18.5c-.414 0-.75.336-.75.75s.336.75.75.75h18.5c.414 0 .75-.336.75-.75zm0-5c0-.414-.336-.75-.75-.75h-18.5c-.414 0-.75.336-.75.75s.336.75.75.75h18.5c.414 0 .75-.336.75-.75z" fill-rule="nonzero"/></svg>
+			</button>
+			<div id="navigation-list" class="navigation-list">
+			<?php
+			wp_nav_menu(
+				array(
+				'theme_location' => 'header-menu'
+				)
+			);
+			?>
+			</div>
+			</nav>
+		</div>
+   		 </section>
 
 	</header><!-- #masthead -->
 
