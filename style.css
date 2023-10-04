@@ -115,7 +115,7 @@ Homepage
 }
 
 .slideshow-container, .img-slide {
-  height: 30rem;
+  height: 13rem;
   overflow: hidden;
 }
 
@@ -124,7 +124,7 @@ Homepage
 }
 
 .slideshow-container .img-slide img {
-    height: 30rem;
+    height: 13rem;
     object-fit: cover;
     object-position: center center;
 }
@@ -178,8 +178,9 @@ Homepage
   to {opacity: 1}
 }
 
-@media (min-width: 64rem) {
-  .slideshow-container {
+
+@media (min-width: 30rem) {
+  .slideshow-container, .img-slide {
     max-width: 66.4989378333em;
     height: 30rem;
   }
@@ -187,6 +188,7 @@ Homepage
   .slideshow-container .img-slide img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 }
 
