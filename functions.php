@@ -22,6 +22,7 @@ function storefront_child_setup() {
   // Custom Menus
   register_nav_menus(
 		array(
+			'header-menu' => esc_html__( 'Header Menu', 'calido' ),
 			'cta-menu' => esc_html__( 'CTA Menu', 'calido' ),
 			'footer-menu' => esc_html__( 'Footer Menu', 'calido' ),
 			'socials-menu' => esc_html__( 'Socials Menu', 'calido' ),
