@@ -5,7 +5,7 @@ Description: Child theme for Storefront.
 Author: Gabbie Bade and Katy Chen
 Author URI: https://gabbiebade.com and https://katychendev.com
 Template: storefront 
-*/  
+*/
 
 /* ===========================
 Base
@@ -20,11 +20,22 @@ Base
 }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6, body {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+body {
   font-family: 'Montserrat', sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 700;
 }
 
@@ -37,7 +48,8 @@ body #primary {
 Calido General
 =============================*/
 /* Calido - Reusable styles */
-.orange-line, .blue-line {
+.orange-line,
+.blue-line {
   margin-top: 1rem;
   margin-bottom: 2rem;
   height: 5px;
@@ -46,15 +58,16 @@ Calido General
 
 .blue-line {
   background: var(--blue);
-  background: linear-gradient(140deg, rgba(8,43,212,1) 18%, rgba(49,206,220,1) 61%);
+  background: linear-gradient(140deg, rgba(8, 43, 212, 1) 18%, rgba(49, 206, 220, 1) 61%);
 }
 
 .orange-line {
   background: var(--orange);
-  background: linear-gradient(140deg, rgba(245,157,30,1) 39%, rgba(232,89,26,1) 82%);
+  background: linear-gradient(140deg, rgba(245, 157, 30, 1) 39%, rgba(232, 89, 26, 1) 82%);
 }
 
-.calido-link, .wp-block-button__link.wp-element-button {
+.calido-link,
+.wp-block-button__link.wp-element-button {
   display: inline-block;
   text-align: center;
   padding: 1rem;
@@ -69,7 +82,8 @@ Calido General
   font-size: 1rem;
 }
 
-.calido-link:hover, .wp-block-button__link.wp-element-button:hover{
+.calido-link:hover,
+.wp-block-button__link.wp-element-button:hover {
   background-color: var(--orange);
   color: var(--black);
 }
@@ -78,7 +92,7 @@ Calido General
   background-color: var(--blue);
 }
 
-.calido-link.calido-secondary:hover{
+.calido-link.calido-secondary:hover {
   background-color: var(--lightblue);
   color: var(--black);
 }
@@ -87,20 +101,65 @@ Calido General
 /* ===========================
 Header
 =============================*/
-#masthead {
+#masthead .nav-header,
+.site-header .cta-menu .menu-cta-container .menu {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.site-branding a .custom-logo {
-  height: 2rem;
-}
-
-.site-branding a {
+.woocommerce-active .site-header .site-branding{
   width: fit-content;
 }
-.site-navigation .menu-toggle {
-  
+
+.calido-header-menu {
+  width: 100%;
 }
+.site-branding .custom-logo-link .custom-logo {
+  height: 10rem;
+}
+
+.site-header .cta-menu .menu-cta-container .menu {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#site-navigation {
+  background-color: white;
+}
+
+#desktop-menu {
+  display: none;
+}
+
+button.menu-toggle, button.menu-toggle:visited  {
+  border: none;
+  height: 100%;
+  max-width: 100%;
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 1rem;
+  color: white;
+  padding: 0;
+  text-align: center;
+  background: var(--blue);
+  background: linear-gradient(140deg, rgba(8, 43, 212, 1) 25%, rgba(49, 206, 220, 1) 91%);
+}
+
+button.menu-toggle:active, button.menu-toggle:focus {
+  background: var(--orange);
+  background: linear-gradient(140deg, rgba(245, 157, 30, 1) 18%, rgba(232, 89, 26, 1) 50%);
+  color: white;
+  border: none;
+  outline: none;
+}
+
+button.menu-toggle::before,
+button.menu-toggle::after {
+display: none;
+}
+
 
 /* ===========================
 Homepage
@@ -114,7 +173,8 @@ Homepage
   margin: 0 auto;
 }
 
-.slideshow-container, .img-slide {
+.slideshow-container,
+.img-slide {
   height: 13rem;
   overflow: hidden;
 }
@@ -124,12 +184,13 @@ Homepage
 }
 
 .slideshow-container .img-slide img {
-    height: 13rem;
-    object-fit: cover;
-    object-position: center center;
+  height: 13rem;
+  object-fit: cover;
+  object-position: center center;
 }
 
-.prev, .next {
+.prev,
+.next {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -149,8 +210,9 @@ Homepage
   border-radius: 3px 0 0 3px;
 }
 
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .dot {
@@ -164,7 +226,8 @@ Homepage
   transition: background-color 0.6s ease;
 }
 
-.active, .dot:hover {
+.active,
+.dot:hover {
   background-color: #717171;
 }
 
@@ -174,22 +237,29 @@ Homepage
 }
 
 @keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+  from {
+    opacity: .4
+  }
+
+  to {
+    opacity: 1
+  }
 }
 
 
 @media (min-width: 30rem) {
-  .slideshow-container, .img-slide {
+
+  .slideshow-container,
+  .img-slide {
     max-width: 66.4989378333em;
     height: 30rem;
   }
-  
+
   .slideshow-container .img-slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
+  }
 }
 
 /* Homepage - Featured Products Styles */
@@ -205,16 +275,17 @@ Homepage
 }
 
 .featured-products .single-featured-product {
-    display: inline-block;
-    width: fit-content;
-    overflow: hidden;
+  display: inline-block;
+  width: fit-content;
+  overflow: hidden;
 }
 
 .featured-products .single-featured-product .single-featured-header {
   font-size: 1.5rem;
 }
-  
-.single-featured-product img, .featured-collection img {
+
+.single-featured-product img,
+.featured-collection img {
   display: inline-block;
   width: 18.75rem;
   height: 18.75rem;
@@ -226,6 +297,7 @@ Homepage
   .featured-products {
     justify-content: space-between;
   }
+
   .featured-products .single-featured-product {
     width: 30%;
   }
@@ -242,13 +314,15 @@ Homepage
 }
 
 
-@media (min-width: 50rem){
-  .home .site-content .featured-collection img{
+@media (min-width: 50rem) {
+  .home .site-content .featured-collection img {
     display: inline;
   }
-  .home .site-content .featured-collection{
+
+  .home .site-content .featured-collection {
     flex-direction: row;
   }
+
   .home .site-content .featured-collection div {
     margin-left: 2rem;
   }
