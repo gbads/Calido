@@ -101,23 +101,28 @@ Calido General
 /* ===========================
 Header
 =============================*/
-#masthead .nav-header,
-.site-header .cta-menu .menu-cta-container .menu {
+#masthead .nav-header {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.woocommerce-active .site-header .site-branding{
-  width: fit-content;
-}
-
 .calido-header-menu {
   width: 100%;
 }
+
+#masthead .nav-header .cta-menu {
+  display: none;
+} 
+
 .site-branding .custom-logo-link .custom-logo {
   height: 10rem;
+  width: auto;
+}
+
+.site-branding {
+  width: fit-content;
 }
 
 .site-header .cta-menu .menu-cta-container .menu {
@@ -127,10 +132,6 @@ Header
 
 #site-navigation {
   background-color: white;
-}
-
-#desktop-menu {
-  display: none;
 }
 
 button.menu-toggle, button.menu-toggle:visited  {
@@ -147,7 +148,7 @@ button.menu-toggle, button.menu-toggle:visited  {
   background: linear-gradient(140deg, rgba(8, 43, 212, 1) 25%, rgba(49, 206, 220, 1) 91%);
 }
 
-button.menu-toggle:active, button.menu-toggle:focus {
+button.menu-toggle:active, button.menu-toggle:focus, button.menu-toggle:hover {
   background: var(--orange);
   background: linear-gradient(140deg, rgba(245, 157, 30, 1) 18%, rgba(232, 89, 26, 1) 50%);
   color: white;
@@ -158,6 +159,26 @@ button.menu-toggle:active, button.menu-toggle:focus {
 button.menu-toggle::before,
 button.menu-toggle::after {
 display: none;
+}
+
+@media screen and (min-width: 48rem) {
+
+  #masthead .nav-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: min-content;
+
+  }
+
+  #masthead .nav-header .cta-menu {
+    display: flex;
+  } 
+
+  #masthead .nav-header .cta-menu .menu .menu-item a, #masthead .nav-header .cta-menu .menu .menu-item {
+    color: white;
+    padding: .5rem;
+    min-width: 10rem
+  }
 }
 
 

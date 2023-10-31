@@ -45,29 +45,27 @@
 					<p class="site-description"><?php echo $calido_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
 					<?php endif; ?>
 			</div>
-			<div class="calido-header-menu">
-				<?php
-					wp_nav_menu(
-						array(
-						'theme_location' => 'header-menu',
-						'menu_id'        => 'desktop-menu',
-						)
-					);
-				?>
-				<nav id="site-navigation" class="main-navigation">
-					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">Menu
-					</button>
-					<div class="cta-menu">
-						<?php
-						wp_nav_menu(array('theme_location' => 'cta-menu'));
-						?>
-					</div>
-					<div id="navigation-list" class="navigation-list">
+			<div class="cta-menu">
 					<?php
 					wp_nav_menu(
 						array(
-						'theme_location' => 'header-menu'
+							'theme_location' 	=> 'cta-menu',
+							'menu_id' 			=> 'cta-menu',
 						)
+					);
+					?>
+			</div>
+			<div class="calido-header-menu">
+					<nav id="site-navigation" class="main-navigation">
+					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">Menu
+					</button>
+					<div id="navigation-list" class="navigation-list ">
+					<?php
+					wp_nav_menu(
+						array(
+						'theme_location' => 'header-menu',
+						'menu_id'        => 'primary-menu',
+						),		
 					);
 					?>
 					</div>
