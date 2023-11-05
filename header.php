@@ -30,7 +30,7 @@
 	<?php do_action( 'storefront_before_header' ); ?>
 
 	<header id="masthead" class="site-header" role="banner" style="<?php storefront_header_styles(); ?>">
-		<section class="nav-header">
+		<section class="nav-header col-full">
 			<div class="site-branding">
 				<?php
 				the_custom_logo();
@@ -45,6 +45,7 @@
 					<p class="site-description"><?php echo $calido_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
 					<?php endif; ?>
 			</div>
+			<?php if(!wp_is_mobile()): ?>
 			<div class="cta-menu">
 					<?php
 					wp_nav_menu(
@@ -55,6 +56,7 @@
 					);
 					?>
 			</div>
+			<?php endif;?>
 			<div class="calido-header-menu">
 					<nav id="site-navigation" class="main-navigation">
 					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">Menu

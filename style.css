@@ -39,9 +39,16 @@ h6 {
   font-weight: 700;
 }
 
-/* Layout Overwrites */
+/* Overwrites */
 body #primary {
   width: 100%;
+}
+
+.main-navigation ul li a:hover,
+.main-navigation ul li:hover>a,
+.site-title a:hover,
+.site-header ul.menu li.current-menu-item>a {
+  color: var(--blue);
 }
 
 /* ===========================
@@ -73,13 +80,11 @@ Calido General
   padding: 1rem;
   background-color: var(--deeporange);
   color: white;
-  font-size: 1.125rem;
+  font-size: .875rem;
   font-weight: 700;
   margin: 1rem auto;
   border-radius: 3px;
   text-transform: uppercase;
-  font-weight: 700;
-  font-size: 1rem;
 }
 
 .calido-link:hover,
@@ -112,10 +117,6 @@ Header
   width: 100%;
 }
 
-#masthead .nav-header .cta-menu {
-  display: none;
-} 
-
 .site-branding .custom-logo-link .custom-logo {
   height: 10rem;
   width: auto;
@@ -134,7 +135,8 @@ Header
   background-color: white;
 }
 
-button.menu-toggle, button.menu-toggle:visited  {
+button.menu-toggle,
+button.menu-toggle:visited {
   border: none;
   height: 100%;
   max-width: 100%;
@@ -148,7 +150,9 @@ button.menu-toggle, button.menu-toggle:visited  {
   background: linear-gradient(140deg, rgba(8, 43, 212, 1) 25%, rgba(49, 206, 220, 1) 91%);
 }
 
-button.menu-toggle:active, button.menu-toggle:focus, button.menu-toggle:hover {
+button.menu-toggle:active,
+button.menu-toggle:focus,
+button.menu-toggle:hover {
   background: var(--orange);
   background: linear-gradient(140deg, rgba(245, 157, 30, 1) 18%, rgba(232, 89, 26, 1) 50%);
   color: white;
@@ -158,26 +162,108 @@ button.menu-toggle:active, button.menu-toggle:focus, button.menu-toggle:hover {
 
 button.menu-toggle::before,
 button.menu-toggle::after {
-display: none;
+  display: none;
+}
+
+#primary-menu {
+  margin: 0 1.4158rem;
+  padding: 0 1rem;
+  background-color: #f5f6ff;
+}
+
+#primary-menu .menu-item,
+#primary-menu .menu-item:visited {
+  font-size: .875rem;
+  color: var(--black);
+}
+
+.sub-menu>li a::before {
+  display: inline;
+  content: "— ";
+}
+
+.main-navigation ul.menu>li>a:active,
+.main-navigation ul.nav-menu>li>a:active,
+.main-navigation ul.menu>li>a:hover,
+.main-navigation ul.nav-menu>li>a:hover {
+  color: var(--blue);
+}
+
+
+#cta-menu .calido-link a,
+#cta-menu .calido-link:visited a,
+#cta-menu .calido-link a,
+#cta-menu .calido-link a:visited {
+  color: white;
+}
+
+#cta-menu .calido-link:hover a,
+#cta-menu .calido-link:active a,
+#cta-menu .calido-link:focus a,
+#cta-menu .calido-link a:hover,
+#cta-menu .calido-link a:active,
+#cta-menu .calido-link a:focus {
+  color: var(--black);
 }
 
 @media screen and (min-width: 48rem) {
 
   #masthead .nav-header {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr auto;
     grid-auto-rows: min-content;
+    justify-content: center;
+    align-items: center;
 
   }
 
   #masthead .nav-header .cta-menu {
     display: flex;
-  } 
+    flex-wrap: nowrap;
+    align-items: center;
+    min-width: 100%;
+  }
 
-  #masthead .nav-header .cta-menu .menu .menu-item a, #masthead .nav-header .cta-menu .menu .menu-item {
-    color: white;
-    padding: .5rem;
-    min-width: 10rem
+  .site-header .site-branding {
+    grid-column: 1/3;
+    grid-row: 1/2;
+  }
+
+  .woocommerce-active .site-header .site-branding {
+    width: 100%;
+    float: none;
+    margin: auto;
+    text-align: center;
+  }
+
+  .woocommerce-active .site-header .site-branding img {
+    margin: auto;
+  }
+
+  .calido-header-menu {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+
+  .cta-menu {
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
+
+  #primary-menu {
+    background-color: transparent;
+    font-weight: 700;
+    min-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  #primary-menu .menu-item {
+    font-size: 1rem;
+  }
+  
+  .calido-header-menu .main-navigation ul.menu ul.sub-menu {
+    background-color: #f5f6ff;
   }
 }
 
