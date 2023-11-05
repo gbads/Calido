@@ -75,6 +75,11 @@ function calido_woo_overwrites(){
   remove_action( 'storefront_header', 'storefront_product_search', 40);
   add_filter( 'woocommerce_is_purchasable', '__return_false');
   remove_action( 'storefront_sidebar', 'storefront_get_sidebar', 10 );
+  
+  // Remove Breadcrumbs if not in the shop page
+  remove_action( 'storefront_before_content', 'woocommerce_breadcrumb', 10 );
+
+   
 }
 add_action('init', 'calido_woo_overwrites');
 
@@ -130,33 +135,10 @@ function calido_remove_handheld_footer_links( $links ) {
 }
 add_filter( 'storefront_handheld_footer_bar_links', 'calido_remove_handheld_footer_links' );
 
-//   add_action( 'wp', 'bbloomer_remove_default_sorting_storefront' );
-  
-//   function bbloomer_remove_default_sorting_storefront() {
-//     remove_action( 'woocommerce_after_shop_loop', 'woocommerce_catalog_ordering', 10 );
-//     remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 10 );
-//   }
-//   remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
-//   remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
-//   remove_action( 'woocommerce_after_shop_loop', 'woocommerce_result_count', 20 );
 
-  // add_filter( 'woocommerce_product_tabs', 'my_remove_all_product_tabs', 98 );
- 
-//   function my_remove_all_product_tabs( $tabs ) {
-//     // unset( $tabs['description'] );        // Remove the description tab
-//     unset( $tabs['reviews'] );       // Remove the reviews tab
-//     unset( $tabs['additional_information'] );    // Remove the additional information tab
-//     return $tabs;
-//   }
-
- // Move the Price below the excerpt on single Product posts
-//   remove_action(
-//     'woocommerce_single_product_summary', // value in do_action()
-//     'woocommerce_template_single_price', // function name
-//     10 // priority 
-//   );
-//   add_action(
-//     'woocommerce_single_product_summary', // do_action() value
-//     'woocommerce_template_single_price', // function name
-//     21 // priority 
-//   );
+// Rename "home" in breadcrumb
+function wcc_change_breadcrumb_home_text( $defaults ) {
+	$defaults['home'] = 'Calido Home';
+	return $defaults;
+}
+add_filter( 'woocommerce_breadcrumb_defaults', 'wcc_change_breadcrumb_home_text', 20 );
