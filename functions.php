@@ -79,6 +79,11 @@ function calido_woo_overwrites(){
   // Remove Breadcrumbs if not in the shop page
   remove_action( 'storefront_before_content', 'woocommerce_breadcrumb', 10 );
 
+  // Remove product sorting
+  remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 10 );
+
+  // Hide SKU on product details
+  add_filter( 'wc_product_sku_enabled', '__return_false' );
    
 }
 add_action('init', 'calido_woo_overwrites');
@@ -105,6 +110,7 @@ function calido_allowed_post_type_blocks( $allowed_block_types, $editor_context 
         'core/media-text',
         'core/image',
         'core/buttons',
+        'core/spacer',
       );
     }
     if('150' == $_GET['post'] ) {
@@ -115,6 +121,7 @@ function calido_allowed_post_type_blocks( $allowed_block_types, $editor_context 
         'core/image',
         'core/media-text',
         'core/buttons',
+        'core/spacer',
       );
     }
 

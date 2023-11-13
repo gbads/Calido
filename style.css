@@ -39,7 +39,9 @@ h6 {
   font-weight: 700;
 }
 
-/* Overwrites */
+/*=======================
+ Overwrites 
+ =======================*/
 body #primary {
   width: 100%;
 }
@@ -50,6 +52,24 @@ body #primary {
 .site-header ul.menu li.current-menu-item>a {
   color: var(--blue);
 }
+
+/* See Details on Shop Page */
+.woocommerce-shop .button.product_type_simple {
+  background-color: transparent;
+  border: none;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.woocommerce-shop .button.product_type_simple:hover, .woocommerce-shop .button.product_type_simple:active  {
+  text-decoration: underline;
+}
+
+/* Remove Product Categories on Product Page */
+.single-product div.product .product_meta {
+  display: none;
+}
+
 
 /* ===========================
 Calido General
@@ -74,7 +94,8 @@ Calido General
 }
 
 .calido-link,
-.wp-block-button__link.wp-element-button {
+.wp-block-button__link.wp-element-button,
+.hentry .entry-content .wp-block-button__link.wp-element-button {
   display: inline-block;
   text-align: center;
   padding: 1rem;
@@ -85,10 +106,12 @@ Calido General
   margin: 1rem auto;
   border-radius: 3px;
   text-transform: uppercase;
+  border-radius: 50px;
 }
 
 .calido-link:hover,
-.wp-block-button__link.wp-element-button:hover {
+.wp-block-button__link.wp-element-button:hover,
+.hentry .entry-content .wp-block-button__link.wp-element-button:hover {
   background-color: var(--orange);
   color: var(--black);
 }
