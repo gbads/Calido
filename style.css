@@ -486,12 +486,15 @@ Homepage
   text-align: center;
 }
 
-.site-footer .calido-footer .footer-left #copyright{
+.calido-footer .custom-logo-link {
   display: block;
+  width: fit-content;
+  margin: auto;
 }
 
-.site-footer .calido-footer .footer-left span:nth-child(2)::after {
-  content: " | ";
+.calido-footer .custom-logo-link .custom-logo {
+  width: 5rem;
+  height: auto;
 }
 
 #socials-menu {
@@ -502,6 +505,11 @@ Homepage
   justify-content: center;
   gap: 1rem;
   margin-top: .5rem;
+}
+
+#socials-menu .menu-item a svg {
+  height: 2rem;
+  width: 2rem;
 }
 
 #socials-menu .menu-item a svg path {

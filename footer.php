@@ -14,10 +14,17 @@
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="col-full calido-footer">
-
 			<div class="footer-left">
+				<?php
+					the_custom_logo();
+					if ( is_front_page() && is_home() ) : ?>
+					<h1 class="site-title screen-reader-text"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+					<?php else : ?>
+					<p class="site-title screen-reader-text"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+					<?php
+					endif;
+				?>
 				<span id="copyright">&copy; <?php echo date('Y')?></span>
-				<span id="calido-name">Calido Art Glass</span>
 				<span id="rights">All rights reserved</span>
 			</div>
 			<div class="footer-right">
