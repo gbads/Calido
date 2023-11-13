@@ -95,7 +95,8 @@ Calido General
 
 .calido-link,
 .wp-block-button__link.wp-element-button,
-.hentry .entry-content .wp-block-button__link.wp-element-button {
+.hentry .entry-content .wp-block-button__link.wp-element-button,
+input[type="submit"] {
   display: inline-block;
   text-align: center;
   padding: 1rem;
@@ -107,11 +108,13 @@ Calido General
   border-radius: 3px;
   text-transform: uppercase;
   border-radius: 50px;
+  min-width: 10rem;
 }
 
 .calido-link:hover,
 .wp-block-button__link.wp-element-button:hover,
-.hentry .entry-content .wp-block-button__link.wp-element-button:hover {
+.hentry .entry-content .wp-block-button__link.wp-element-button:hover,
+input[type="submit"]:hover {
   background-color: var(--orange);
   color: var(--black);
 }
