@@ -54,23 +54,21 @@ body #primary {
   color: var(--blue);
 }
 
-/* See Details on Shop Page */
-.woocommerce-shop .button.product_type_simple {
-  background-color: transparent;
-  border: none;
-  text-transform: uppercase;
-  color: var(--blue);
-}
-
-.woocommerce-shop .button.product_type_simple:hover, .woocommerce-shop .button.product_type_simple:active  {
-  text-decoration: underline;
-}
-
 /* Remove Product Categories on Product Page */
 .single-product div.product .product_meta {
   display: none;
 }
 
+/* WooCommerce Button Styles */
+.button.product_type_simple {
+  background-color: transparent;
+  color: var(--black);
+  text-transform: uppercase;
+}
+
+.button.product_type_simple:hover {
+  text-decoration: underline;
+}
 
 /* ===========================
 Calido General
